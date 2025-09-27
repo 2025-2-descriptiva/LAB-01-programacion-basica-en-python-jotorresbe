@@ -1,8 +1,6 @@
 # Creando una función que abre el dataset
 
 
-import re
-
 RUTA = 'files\input\data.csv'
 # Definimos los separadores de nuestro dataset 
 PATRON = '[\t]|;|:|,|[\r]'
