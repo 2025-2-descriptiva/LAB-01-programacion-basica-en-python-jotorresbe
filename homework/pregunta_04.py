@@ -5,6 +5,8 @@ solo puede utilizar las funciones y librerias basicas de python. No puede
 utilizar pandas, numpy o scipy.
 """
 
+from homework.funciones_generales import DATASET_LISTO
+dataset = DATASET_LISTO
 
 def pregunta_04():
     """
@@ -26,3 +28,14 @@ def pregunta_04():
      ('12', 3)]
 
     """
+    dict_fechas = {}
+    for fila in dataset:
+        fecha = fila[2][5:7]
+        if fecha in dict_fechas:
+            dict_fechas[fecha] += 1
+        else:
+            dict_fechas[fecha] = 1
+    
+    return sorted(dict_fechas.items())
+
+print(pregunta_04())

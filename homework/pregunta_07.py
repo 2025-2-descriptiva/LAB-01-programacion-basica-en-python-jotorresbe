@@ -4,7 +4,8 @@ datos requeridos se encuentran en el archivo data.csv. En este laboratorio
 solo puede utilizar las funciones y librerias basicas de python. No puede
 utilizar pandas, numpy o scipy.
 """
-
+from homework.funciones_generales import DATASET_LISTO
+dataset = DATASET_LISTO
 
 def pregunta_07():
     """
@@ -25,3 +26,14 @@ def pregunta_07():
      (9, ['A', 'B', 'E', 'A', 'A', 'C'])]
 
     """
+
+    dict_values = dict()
+    
+    for linea in dataset:
+        int_col_2 = int(linea[1])
+        dict_values[int_col_2] = dict_values.get(int_col_2,[]) + [linea[0]]
+    return sorted(dict_values.items())
+
+pregunta_07()
+
+    

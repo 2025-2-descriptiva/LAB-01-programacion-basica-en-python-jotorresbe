@@ -4,7 +4,8 @@ datos requeridos se encuentran en el archivo data.csv. En este laboratorio
 solo puede utilizar las funciones y librerias basicas de python. No puede
 utilizar pandas, numpy o scipy.
 """
-
+from homework.funciones_generales import DATASET_LISTO
+dataset = DATASET_LISTO
 
 def pregunta_06():
     """
@@ -26,3 +27,27 @@ def pregunta_06():
      ('jjj', 5, 17)]
 
     """
+    dict_local = {}
+    lista = list()
+    for fila in dataset:
+        # Se agrega en una misma lista la lista de futuros key-value
+        # Ej: ['jjj':'2'] 
+        lista.extend(fila[4].split(","))
+    
+    # Lista de elementos futuro key-values separados:
+    # Ej: ['jjj','2']
+    test = [row.split(":") for row in lista]
+    lista = []
+    for registro in test:
+        #Si el value no existe, lo agrega con un append
+        # El resultado será un key, [lista]
+        dict_local[registro[0]] = dict_local.get(registro[0], []) + [int(registro[1])]
+        
+    
+    for claves, valores in dict_local.items():
+        # Agregando en la forma lista de tuplas
+        lista.append((claves, min(valores),max(valores)))
+    
+    return sorted(lista)
+
+pregunta_06()
