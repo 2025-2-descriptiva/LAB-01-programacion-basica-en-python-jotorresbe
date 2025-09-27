@@ -1,7 +1,7 @@
 # Creando una función que abre el dataset
 
 
-RUTA = 'files\input\data.csv'
+RUTA = 'files/input/data.csv'
 # Definimos los separadores de nuestro dataset 
 PATRON = '[\t]|;|:|,|[\r]'
 
